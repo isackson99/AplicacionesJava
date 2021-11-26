@@ -67,12 +67,12 @@ public class Registro {
         }
     }
     
-    public boolean Actualizar(Jugador jugador){
-        try {
+    public boolean Actualizar(Jugador jugador)
+{        try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
                                     
-            String query = "UPDATE jugador SET nombre=?, rango=?, kills=?, muerte=?, baneado=? WHERE = idlibro=?";
+            String query = "UPDATE jugador SET nombre=?, rango=?, kills=?, muerte=?, baneado=? WHERE idjugador=?";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, jugador.getNombre());
             stmt.setString(2, jugador.getRango());
