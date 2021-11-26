@@ -5,6 +5,10 @@
  */
 package vista;
 
+import Modelo.Jugador;
+import controlador.Registro;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author isaac
@@ -27,22 +31,300 @@ public class Agregar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jtxt_kills = new javax.swing.JTextField();
+        jtxt_rango = new javax.swing.JTextField();
+        jtxt_nombre = new javax.swing.JTextField();
+        jtxt_muertes = new javax.swing.JTextField();
+        jchk_ban = new javax.swing.JCheckBox();
+        jPanel2 = new javax.swing.JPanel();
+        jbtn_salir = new javax.swing.JButton();
+        jbtn_limpiar = new javax.swing.JButton();
+        jbtn_agregar = new javax.swing.JButton();
+
+        jLabel3.setText("jLabel3");
+
+        jLabel6.setText("jLabel6");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Jugador");
+
+        jPanel1.setBackground(new java.awt.Color(220, 40, 85));
+
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setText("Rango:");
+
+        jLabel4.setText("Kills:");
+
+        jLabel5.setText("Muertes:");
+
+        jLabel7.setText("Baneado?:");
+
+        jtxt_kills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_killsActionPerformed(evt);
+            }
+        });
+
+        jtxt_rango.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_rangoActionPerformed(evt);
+            }
+        });
+
+        jtxt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_nombreActionPerformed(evt);
+            }
+        });
+
+        jtxt_muertes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_muertesActionPerformed(evt);
+            }
+        });
+
+        jchk_ban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jchk_banActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel7))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel4)))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtxt_kills, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_rango, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jchk_ban)
+                    .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_muertes, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_rango, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jtxt_kills, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jtxt_muertes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jchk_ban))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 51, 102));
+
+        jbtn_salir.setText("Salir");
+        jbtn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_salirActionPerformed(evt);
+            }
+        });
+
+        jbtn_limpiar.setText("Limpiar");
+        jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_limpiarActionPerformed(evt);
+            }
+        });
+
+        jbtn_agregar.setText("Agregar");
+        jbtn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_agregarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jbtn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jbtn_limpiar)
+                .addGap(44, 44, 44)
+                .addComponent(jbtn_agregar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_limpiar)
+                    .addComponent(jbtn_agregar)
+                    .addComponent(jbtn_salir))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarActionPerformed
+        
+        String nombre, rango;
+        int kills, muerte;
+        boolean baneado;
+        
+        nombre = this.jtxt_nombre.getText();
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese nombre", "Validacion", 2);
+            this.jtxt_nombre.requestFocus();
+            return;
+        }
+        
+        rango = this.jtxt_rango.getText();
+        if (rango.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese rango", "Validacion", 2);
+            this.jtxt_rango.requestFocus();
+            return;
+        }
+        try {
+            kills = Integer.parseInt(this.jtxt_kills.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ingrese numero (Kills)", "Validacion", 2);
+            this.jtxt_rango.requestFocus();
+            return;
+        }
+        
+        try {
+            muerte = Integer.parseInt(this.jtxt_muertes.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ingrese numero (Muertes)", "Validacion", 2);
+            this.jtxt_rango.requestFocus();
+            return;
+        }
+        
+        baneado = this.jchk_ban.isSelected();
+        
+        Jugador jugador = new Jugador(0, nombre, rango, kills, muerte, baneado);
+        
+        Registro reg = new Registro();
+        
+        if (reg.buscarJugador(reg.buscarTodos(), nombre) == false) {
+            
+            if (reg.agregar(jugador)) {
+                JOptionPane.showMessageDialog(this, "Se agrego jugador", "Informacion", 1);
+            }else{
+                JOptionPane.showMessageDialog(this, "No se agrego jugador", "Informacion", 0);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Jugador ya existe", "Informacion", 2);
+        }
+        
+    }//GEN-LAST:event_jbtn_agregarActionPerformed
+
+    private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_nombreActionPerformed
+
+    private void jtxt_rangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rangoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_rangoActionPerformed
+
+    private void jtxt_killsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_killsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_killsActionPerformed
+
+    private void jtxt_muertesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_muertesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_muertesActionPerformed
+
+    private void jchk_banActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_banActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jchk_banActionPerformed
+
+    private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbtn_salirActionPerformed
+
+    private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
+        this.jtxt_nombre.setText("");
+        this.jtxt_rango.setText("");
+        this.jtxt_kills.setText("");
+        this.jtxt_muertes.setText("");
+        this.jchk_ban.setText("");
+        this.jtxt_nombre.requestFocus();
+    }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +362,25 @@ public class Agregar extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jbtn_agregar;
+    private javax.swing.JButton jbtn_limpiar;
+    private javax.swing.JButton jbtn_salir;
+    private javax.swing.JCheckBox jchk_ban;
+    private javax.swing.JTextField jtxt_kills;
+    private javax.swing.JTextField jtxt_muertes;
+    private javax.swing.JTextField jtxt_nombre;
+    private javax.swing.JTextField jtxt_rango;
     // End of variables declaration//GEN-END:variables
 }

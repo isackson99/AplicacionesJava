@@ -14,7 +14,7 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(int idjugador, int kills, int muerte, String nombre, String rango, boolean baneado) {
+    public Jugador(int idjugador,String nombre , String rango,int kills , int muerte, boolean baneado) {
         this.idjugador = idjugador;
         this.kills = kills;
         this.muerte = muerte;

@@ -276,4 +276,14 @@ public class Registro {
         }
         return jugador;
     }
+    public boolean buscarJugador(List<Jugador> lista, String nombre){
+        for (Jugador jugador : lista) {
+            if (jugador.getNombre().equalsIgnoreCase(nombre)) {
+                return true;
+            }
+            
+        }
+        return false;
+    }
+    
 }
