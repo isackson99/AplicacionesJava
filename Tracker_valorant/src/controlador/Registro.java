@@ -115,7 +115,7 @@ public class Registro {
                 jugador.setNombre(rs.getString("nombre"));
                 jugador.setRango(rs.getString("rango"));
                 jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muertes"));
+                jugador.setMuerte(rs.getInt("muerte"));
                 jugador.setBaneado(rs.getBoolean("baneado"));
                 
                 lista.add(jugador);
@@ -139,6 +139,7 @@ public class Registro {
             
             String query = "SELECT * FROM jugador WHERE idjugador=?";
             PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1,idjugador);
             
             ResultSet rs = stmt.executeQuery();
             
@@ -160,122 +161,6 @@ public class Registro {
         return jugador;
     }   
     
-    public Jugador buscarPorKills(int kills){
-        Jugador jugador = new Jugador();
-        
-        try {
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexion();
-            
-            String query = "SELECT * FROM jugador WHERE kills=?";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                jugador.setIdjugador(rs.getInt("idjugador"));
-                jugador.setNombre(rs.getString("nombre"));
-                jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
-                jugador.setBaneado(rs.getBoolean("baneado"));                                
-            }
-            rs.close();
-            stmt.close();
-            cnx.close();
-            
-        } catch (Exception e) {
-            System.out.println("Error SQL al listar jugador por kills");
-        }
-        return jugador;
-    }
-    public Jugador buscarPorNombre(String nombre){
-        Jugador jugador = new Jugador();
-        
-        try {
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexion();
-            
-            String query = "SELECT * FROM jugador WHERE nombre=?";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                jugador.setIdjugador(rs.getInt("idjugador"));
-                jugador.setNombre(rs.getString("nombre"));
-                jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
-                jugador.setBaneado(rs.getBoolean("baneado"));                                
-            }
-            rs.close();
-            stmt.close();
-            cnx.close();
-            
-        } catch (Exception e) {
-            System.out.println("Error SQL al listar jugador por nombre");
-        }
-        return jugador;
-    }
-    public Jugador buscarPorRango(String rango){
-        Jugador jugador = new Jugador();
-        
-        try {
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexion();
-            
-            String query = "SELECT * FROM jugador WHERE rango=?";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                jugador.setIdjugador(rs.getInt("idjugador"));
-                jugador.setNombre(rs.getString("nombre"));
-                jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
-                jugador.setBaneado(rs.getBoolean("baneado"));                                
-            }
-            rs.close();
-            stmt.close();
-            cnx.close();
-            
-        } catch (Exception e) {
-            System.out.println("Error SQL al listar jugador por rango");
-        }
-        return jugador;
-    }
-    public Jugador buscarPorMuerte(String muerte){
-        Jugador jugador = new Jugador();
-        
-        try {
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexion();
-            
-            String query = "SELECT * FROM jugador WHERE muerte=?";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                jugador.setIdjugador(rs.getInt("idjugador"));
-                jugador.setNombre(rs.getString("nombre"));
-                jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
-                jugador.setBaneado(rs.getBoolean("baneado"));                                
-            }
-            rs.close();
-            stmt.close();
-            cnx.close();
-            
-        } catch (Exception e) {
-            System.out.println("Error SQL al listar jugador por muerte");
-        }
-        return jugador;
-    }
     public boolean buscarJugador(List<Jugador> lista, String nombre){
         for (Jugador jugador : lista) {
             if (jugador.getNombre().equalsIgnoreCase(nombre)) {
@@ -285,5 +170,127 @@ public class Registro {
         }
         return false;
     }
+    
+    //IMPLEMENTACION EN SIGUIENTE VERSION DE FILTROS
+    
+//    public Jugador buscarPorKills(int kills){
+//        Jugador jugador = new Jugador();
+//        
+//        try {
+//            Conexion con = new Conexion();
+//            Connection cnx = con.obtenerConexion();
+//            
+//            String query = "SELECT * FROM jugador WHERE kills=?";
+//            PreparedStatement stmt = cnx.prepareStatement(query);
+//            stmt.setInt(4,kills);
+//            ResultSet rs = stmt.executeQuery();
+//            
+//            if (rs.next()) {
+//                jugador.setIdjugador(rs.getInt("idjugador"));
+//                jugador.setNombre(rs.getString("nombre"));
+//                jugador.setRango(rs.getString("rango"));
+//                jugador.setKills(rs.getInt("kills"));
+//                jugador.setMuerte(rs.getInt("muerte"));
+//                jugador.setBaneado(rs.getBoolean("baneado"));                                
+//            }
+//            rs.close();
+//            stmt.close();
+//            cnx.close();
+//            
+//        } catch (Exception e) {
+//            System.out.println("Error SQL al listar jugador por kills");
+//        }
+//        return jugador;
+//    }
+//    public Jugador buscarPorNombre(String nombre){
+//        Jugador jugador = new Jugador();
+//        
+//        try {
+//            Conexion con = new Conexion();
+//            Connection cnx = con.obtenerConexion();
+//            
+//            String query = "SELECT * FROM jugador WHERE nombre= '?' ";
+//            PreparedStatement stmt = cnx.prepareStatement(query);
+//            stmt.setString(2, nombre);
+//            
+//            ResultSet rs = stmt.executeQuery();
+//            
+//            if (rs.next()) {
+//                jugador.setIdjugador(rs.getInt("idjugador"));
+//                jugador.setNombre(rs.getString("nombre"));
+//                jugador.setRango(rs.getString("rango"));
+//                jugador.setKills(rs.getInt("kills"));
+//                jugador.setMuerte(rs.getInt("muerte"));
+//                jugador.setBaneado(rs.getBoolean("baneado"));                                
+//            }
+//            rs.close();
+//            stmt.close();
+//            cnx.close();
+//            
+//        } catch (Exception e) {
+//            System.out.println("Error SQL al listar jugador por nombre");
+//        }
+//        return jugador;
+//    }
+//    public Jugador buscarPorRango(String rango){
+//        Jugador jugador = new Jugador();
+//        
+//        try {
+//            Conexion con = new Conexion();
+//            Connection cnx = con.obtenerConexion();
+//            
+//            String query = "SELECT * FROM jugador WHERE rango=?";
+//            PreparedStatement stmt = cnx.prepareStatement(query);
+//            stmt.setString(3, rango);
+//            ResultSet rs = stmt.executeQuery();
+//            
+//            if (rs.next()) {
+//                jugador.setIdjugador(rs.getInt("idjugador"));
+//                jugador.setNombre(rs.getString("nombre"));
+//                jugador.setRango(rs.getString("rango"));
+//                jugador.setKills(rs.getInt("kills"));
+//                jugador.setMuerte(rs.getInt("muerte"));
+//                jugador.setBaneado(rs.getBoolean("baneado"));                                
+//            }
+//            rs.close();
+//            stmt.close();
+//            cnx.close();
+//            
+//        } catch (Exception e) {
+//            System.out.println("Error SQL al listar jugador por rango");
+//        }
+//        return jugador;
+//    }
+//    public Jugador buscarPorMuerte(int muerte){
+//        Jugador jugador = new Jugador();
+//        
+//        try {
+//            Conexion con = new Conexion();
+//            Connection cnx = con.obtenerConexion();
+//            
+//            String query = "SELECT * FROM jugador WHERE muerte=?";
+//            PreparedStatement stmt = cnx.prepareStatement(query);
+//            stmt.setInt(5, muerte);
+//            ResultSet rs = stmt.executeQuery();
+//            
+//            if (rs.next()) {
+//                jugador.setIdjugador(rs.getInt("idjugador"));
+//                jugador.setNombre(rs.getString("nombre"));
+//                jugador.setRango(rs.getString("rango"));
+//                jugador.setKills(rs.getInt("kills"));
+//                jugador.setMuerte(rs.getInt("muerte"));
+//                jugador.setBaneado(rs.getBoolean("baneado"));                                
+//            }
+//            rs.close();
+//            stmt.close();
+//            cnx.close();
+//            
+//        } catch (Exception e) {
+//            System.out.println("Error SQL al listar jugador por muerte");
+//        }
+//        return jugador;
+//    }
+    
+    
     
 }
