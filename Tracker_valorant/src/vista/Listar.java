@@ -125,6 +125,9 @@ public class Listar extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jbtl_datos);
+        if (jbtl_datos.getColumnModel().getColumnCount() > 0) {
+            jbtl_datos.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -192,7 +195,7 @@ public class Listar extends javax.swing.JFrame {
                 ban = jug.isBaneado();
                 kd = jug.getKills()/jug.getMuerte();
                 
-                modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban, kd});
+                modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, kd, ban});
             }
         }else if(id == Integer.parseInt(jtxt_buscar.getText())){
             
@@ -205,7 +208,7 @@ public class Listar extends javax.swing.JFrame {
             ban = jugador.isBaneado();
             kd = jugador.getKills()/jugador.getMuerte();
             
-            modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban, kd});
+            modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, kd, ban});
         
 //      IMPLEMENTACION EN UNA VERSION PRONTA
 //        }else if(jtxt_buscar.getText().equals(nombre)){
