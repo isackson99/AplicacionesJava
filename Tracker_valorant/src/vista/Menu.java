@@ -5,6 +5,13 @@
  */
 package vista;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author isaac
@@ -37,7 +44,7 @@ public class Menu extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmi_salir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmi_soporte = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú");
@@ -93,13 +100,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Acerca de");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmi_soporte.setText("Soporte");
+        jmi_soporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmi_soporteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(jmi_soporte);
 
         jMenuBar1.add(jMenu2);
 
@@ -139,9 +146,15 @@ public class Menu extends javax.swing.JFrame {
         new Listar().setVisible(true);
     }//GEN-LAST:event_jmi_listarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jmi_soporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_soporteActionPerformed
+        try {
+            Desktop.getDesktop().browse(new URI ("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jmi_soporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,12 +196,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem jmi_actualizar;
     private javax.swing.JMenuItem jmi_agregar;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_listar;
     private javax.swing.JMenuItem jmi_salir;
+    private javax.swing.JMenuItem jmi_soporte;
     // End of variables declaration//GEN-END:variables
 }
