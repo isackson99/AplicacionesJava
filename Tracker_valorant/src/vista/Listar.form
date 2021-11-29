@@ -148,8 +148,8 @@
                     <Column editable="false" title="Rango" type="java.lang.String"/>
                     <Column editable="false" title="Kills" type="java.lang.Integer"/>
                     <Column editable="false" title="Muertes" type="java.lang.Integer"/>
-                    <Column editable="false" title="Baneado" type="java.lang.Boolean"/>
                     <Column editable="false" title="KD" type="java.lang.Float"/>
+                    <Column editable="false" title="Baneado" type="java.lang.Boolean"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
