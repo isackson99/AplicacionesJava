@@ -7,7 +7,11 @@ package vista;
 
 import Modelo.Jugador;
 import controlador.Registro;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +25,7 @@ public class Listar extends javax.swing.JFrame {
      */
     public Listar() {
         initComponents();
+        poputTable();
     }
 
     /**
@@ -124,6 +129,11 @@ public class Listar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jbtl_datos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtl_datosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jbtl_datos);
         if (jbtl_datos.getColumnModel().getColumnCount() > 0) {
             jbtl_datos.getColumnModel().getColumn(5).setResizable(false);
@@ -157,7 +167,35 @@ public class Listar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Uso de click derecho
+    public void poputTable(){
+        JPopupMenu popupMenu = new JPopupMenu();
+    
+        JMenuItem menuItem1 = new JMenuItem("Actualizar");
+    
+        menuItem1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Actualizar().setVisible(true);
+            }
+        });
+        popupMenu.add(menuItem1);
+        
+        JMenuItem menuItem2 = new JMenuItem("Borrar");
+    
+        menuItem2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Eliminar().setVisible(true);
+            }
+        });
+        popupMenu.add(menuItem2);
+        jbtl_datos.setComponentPopupMenu(popupMenu);
+    }
+    
+    
+    
+    
     private void jtxt_buscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_buscarFocusGained
         this.jtxt_buscar.setText("");
     }//GEN-LAST:event_jtxt_buscarFocusGained
@@ -235,6 +273,10 @@ public class Listar extends javax.swing.JFrame {
 //            modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban});
         }
     }//GEN-LAST:event_jbtn_buscarActionPerformed
+
+    private void jbtl_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtl_datosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtl_datosMouseClicked
 
     /**
      * @param args the command line arguments
