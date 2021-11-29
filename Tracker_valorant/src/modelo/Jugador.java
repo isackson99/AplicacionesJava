@@ -7,14 +7,15 @@ package Modelo;
  */
 public class Jugador {
     
-    private int idjugador, kills, muerte;
+    private double kills, muerte;
+    private int idjugador;
     private String nombre, rango;
     private boolean baneado;
 
     public Jugador() {
     }
 
-    public Jugador(int idjugador,String nombre , String rango,int kills , int muerte, boolean baneado) {
+    public Jugador(int idjugador,String nombre , String rango,double kills , double muerte, boolean baneado) {
         this.idjugador = idjugador;
         this.kills = kills;
         this.muerte = muerte;
@@ -31,19 +32,19 @@ public class Jugador {
         this.idjugador = idjugador;
     }
 
-    public int getKills() {
+    public double getKills() {
         return kills;
     }
 
-    public void setKills(int kills) {
+    public void setKills(double kills) {
         this.kills = kills;
     }
 
-    public int getMuerte() {
+    public double getMuerte() {
         return muerte;
     }
 
-    public void setMuerte(int muerte) {
+    public void setMuerte(double muerte) {
         this.muerte = muerte;
     }
 

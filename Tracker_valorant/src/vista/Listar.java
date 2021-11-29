@@ -100,20 +100,20 @@ public class Listar extends javax.swing.JFrame {
 
         jbtl_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Jugador", "Nombre", "Rango", "Kills", "Muertes", "Baneado"
+                "ID Jugador", "Nombre", "Rango", "Kills", "Muertes", "Baneado", "KD"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -162,8 +162,10 @@ public class Listar extends javax.swing.JFrame {
     private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
         
         String nombre = null , rango;
-        int id, kills = 0, muerte;
+        double kills = 0, muerte;
+        int id;
         boolean ban;
+        double kd;
         
         
         Registro reg = new Registro();
@@ -188,8 +190,9 @@ public class Listar extends javax.swing.JFrame {
                 kills = jug.getKills();
                 muerte = jug.getMuerte();
                 ban = jug.isBaneado();
+                kd = jug.getKills()/jug.getMuerte();
                 
-                modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban});
+                modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban, kd});
             }
         }else if(id == Integer.parseInt(jtxt_buscar.getText())){
             
@@ -200,8 +203,9 @@ public class Listar extends javax.swing.JFrame {
             kills = jugador.getKills();
             muerte = jugador.getMuerte();
             ban = jugador.isBaneado();
+            kd = jugador.getKills()/jugador.getMuerte();
             
-            modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban});
+            modelo.addRow(new Object[]{id, nombre, rango, kills, muerte, ban, kd});
         
 //      IMPLEMENTACION EN UNA VERSION PRONTA
 //        }else if(jtxt_buscar.getText().equals(nombre)){

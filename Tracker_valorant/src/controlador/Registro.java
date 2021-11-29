@@ -28,8 +28,8 @@ public class Registro {
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, jugador.getNombre());
             stmt.setString(2, jugador.getRango());
-            stmt.setInt(3, jugador.getKills());
-            stmt.setInt(4, jugador.getMuerte());
+            stmt.setDouble(3, jugador.getKills());
+            stmt.setDouble(4, jugador.getMuerte());
             stmt.setBoolean(5, jugador.isBaneado());
             
             stmt.executeUpdate();
@@ -76,8 +76,8 @@ public class Registro {
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, jugador.getNombre());
             stmt.setString(2, jugador.getRango());
-            stmt.setInt(3, jugador.getKills());
-            stmt.setInt(4, jugador.getMuerte());
+            stmt.setDouble(3, jugador.getKills());
+            stmt.setDouble(4, jugador.getMuerte());
             stmt.setBoolean(5, jugador.isBaneado());
             stmt.setInt(6, jugador.getIdjugador());
             
@@ -114,8 +114,8 @@ public class Registro {
                 jugador.setIdjugador(rs.getInt("idjugador"));
                 jugador.setNombre(rs.getString("nombre"));
                 jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
+                jugador.setKills(rs.getDouble("kills"));
+                jugador.setMuerte(rs.getDouble("muerte"));
                 jugador.setBaneado(rs.getBoolean("baneado"));
                 
                 lista.add(jugador);
@@ -147,8 +147,8 @@ public class Registro {
                 jugador.setIdjugador(rs.getInt("idjugador"));
                 jugador.setNombre(rs.getString("nombre"));
                 jugador.setRango(rs.getString("rango"));
-                jugador.setKills(rs.getInt("kills"));
-                jugador.setMuerte(rs.getInt("muerte"));
+                jugador.setKills(rs.getDouble("kills"));
+                jugador.setMuerte(rs.getDouble("muerte"));
                 jugador.setBaneado(rs.getBoolean("baneado"));                                
             }
             rs.close();

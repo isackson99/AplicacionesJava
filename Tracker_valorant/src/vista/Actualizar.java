@@ -252,8 +252,8 @@ public class Actualizar extends javax.swing.JFrame {
         
         String nombre = jugador.getNombre();
         String rango = jugador.getRango();
-        int kills = jugador.getKills();
-        int muerte = jugador.getMuerte();
+        double kills = jugador.getKills();
+        double muerte = jugador.getMuerte();
         boolean ban = jugador.isBaneado();
         
         this.jtxt_nombre.setText(nombre);

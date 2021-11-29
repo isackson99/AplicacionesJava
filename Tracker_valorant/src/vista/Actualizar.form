@@ -120,10 +120,8 @@
                                   <Component id="jtxt_nombre" pref="155" max="32767" attributes="0"/>
                                   <Component id="jchk_ban" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtxt_rango" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jtxt_muertes" alignment="0" pref="30" max="32767" attributes="0"/>
-                                      <Component id="jtxt_kills" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jtxt_muertes" alignment="0" pref="30" max="32767" attributes="0"/>
+                                  <Component id="jtxt_kills" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
