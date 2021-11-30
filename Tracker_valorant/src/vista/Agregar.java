@@ -7,7 +7,11 @@ package vista;
 
 import Modelo.Jugador;
 import controlador.Registro;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,10 +19,13 @@ import javax.swing.JOptionPane;
  */
 public class Agregar extends javax.swing.JFrame {
 
+    FondoPanel fondo = new FondoPanel();
+
     /**
      * Creates new form Agregar
      */
     public Agregar() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -35,7 +42,7 @@ public class Agregar extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new FondoPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -240,18 +247,18 @@ public class Agregar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarActionPerformed
-        
+
         String nombre, rango;
         int kills, muerte;
         boolean baneado;
-        
+
         nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese nombre", "Validacion", 2);
             this.jtxt_nombre.requestFocus();
             return;
         }
-        
+
         rango = this.jtxt_rango.getText();
         if (rango.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese rango", "Validacion", 2);
@@ -265,7 +272,7 @@ public class Agregar extends javax.swing.JFrame {
             this.jtxt_rango.requestFocus();
             return;
         }
-        
+
         try {
             muerte = Integer.parseInt(this.jtxt_muertes.getText());
         } catch (Exception e) {
@@ -273,24 +280,24 @@ public class Agregar extends javax.swing.JFrame {
             this.jtxt_rango.requestFocus();
             return;
         }
-        
+
         baneado = this.jchk_ban.isSelected();
-        
+
         Jugador jugador = new Jugador(0, nombre, rango, kills, muerte, baneado);
-        
+
         Registro reg = new Registro();
-        
+
         if (reg.buscarJugador(reg.buscarTodos(), nombre) == false) {
-            
+
             if (reg.agregar(jugador)) {
                 JOptionPane.showMessageDialog(this, "Se agrego jugador", "Informacion", 1);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "No se agrego jugador", "Informacion", 0);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Jugador ya existe", "Informacion", 2);
         }
-        
+
     }//GEN-LAST:event_jbtn_agregarActionPerformed
 
     private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
@@ -383,4 +390,17 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_rango;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/valorant2.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+
 }

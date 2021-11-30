@@ -7,18 +7,26 @@ package vista;
 
 import Modelo.Jugador;
 import controlador.Registro;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author isaac
  */
 public class Actualizar extends javax.swing.JFrame {
-    
+
+    FondoPanel fondo = new FondoPanel();
     Registro reg = new Registro();
+
     /**
      * Creates new form Actualizar
      */
     public Actualizar() {
+        this.setContentPane(fondo);
         initComponents();
         this.jtxt_nombre.setEditable(false);
         this.jtxt_rango.setEditable(false);
@@ -40,7 +48,7 @@ public class Actualizar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new FondoPanel();
         jLabel1 = new javax.swing.JLabel();
         jtxt_buscar = new javax.swing.JTextField();
         jbtn_buscar = new javax.swing.JButton();
@@ -58,6 +66,7 @@ public class Actualizar extends javax.swing.JFrame {
         jbtn_editar = new javax.swing.JButton();
         jbtn_aceptar = new javax.swing.JButton();
         jbtn_salir = new javax.swing.JButton();
+        jbtn_limpiar = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -70,6 +79,7 @@ public class Actualizar extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(154, 15, 15));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese ID del jugador:");
 
         jtxt_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,14 +95,19 @@ public class Actualizar extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Rango:");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Kills:");
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Muertes:");
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Ban:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -105,27 +120,26 @@ public class Actualizar extends javax.swing.JFrame {
                         .addGap(141, 141, 141)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jtxt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_buscar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(69, 69, 69)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(jchk_ban)
-                            .addComponent(jtxt_rango)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jtxt_muertes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                .addComponent(jtxt_kills, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtxt_nombre)
+                                    .addComponent(jchk_ban)
+                                    .addComponent(jtxt_rango)
+                                    .addComponent(jtxt_muertes)
+                                    .addComponent(jtxt_kills, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtxt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtn_buscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +150,7 @@ public class Actualizar extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_buscar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,27 +170,21 @@ public class Actualizar extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jchk_ban))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(161, 60, 60));
+        jPanel3.setBackground(new java.awt.Color(1, 1, 39));
 
         jbtn_editar.setText("Editar");
         jbtn_editar.addActionListener(new java.awt.event.ActionListener() {
@@ -199,18 +207,27 @@ public class Actualizar extends javax.swing.JFrame {
             }
         });
 
+        jbtn_limpiar.setText("Limpiar");
+        jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_limpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(23, 23, 23)
                 .addComponent(jbtn_editar)
-                .addGap(61, 61, 61)
+                .addGap(29, 29, 29)
                 .addComponent(jbtn_aceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
+                .addComponent(jbtn_limpiar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jbtn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(26, 26, 26))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +236,8 @@ public class Actualizar extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_editar)
                     .addComponent(jbtn_aceptar)
-                    .addComponent(jbtn_salir))
+                    .addComponent(jbtn_salir)
+                    .addComponent(jbtn_limpiar))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -247,54 +265,73 @@ public class Actualizar extends javax.swing.JFrame {
 
     private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
         int id = Integer.parseInt(this.jtxt_buscar.getText());
-        
+
         Jugador jugador = reg.buscarPorId(id);
-        
+
         String nombre = jugador.getNombre();
         String rango = jugador.getRango();
         double kills = jugador.getKills();
         double muerte = jugador.getMuerte();
         boolean ban = jugador.isBaneado();
-        
+
         this.jtxt_nombre.setText(nombre);
         this.jtxt_rango.setText(rango);
         this.jtxt_kills.setText(String.valueOf(kills));
         this.jtxt_muertes.setText(String.valueOf(muerte));
         this.jchk_ban.setSelected(ban);// proceso de tarea: Bien
-        
+
     }//GEN-LAST:event_jbtn_buscarActionPerformed
 
     private void jbtn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_editarActionPerformed
-        this.jtxt_nombre.setEditable(true);
-        this.jtxt_rango.setEditable(true);
-        this.jtxt_kills.setEditable(true);
-        this.jtxt_muertes.setEditable(true);
-        this.jchk_ban.setEnabled(true);
+        if (Integer.parseInt(jtxt_buscar.getText()) != 0) {
+            this.jtxt_nombre.setEditable(true);
+            this.jtxt_rango.setEditable(true);
+            this.jtxt_kills.setEditable(true);
+            this.jtxt_muertes.setEditable(true);
+            this.jchk_ban.setEnabled(true);
+        } else{
+            JOptionPane.showMessageDialog(this, "Ingrese ID", "Aviso", 1);
+        }
+
     }//GEN-LAST:event_jbtn_editarActionPerformed
 
     private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
         int kills, muerte, id;
         String nombre, rango;
         boolean ban;
-        
+
         id = Integer.parseInt(this.jtxt_buscar.getText());
         nombre = this.jtxt_nombre.getText();
         rango = this.jtxt_rango.getText();
         kills = Integer.parseInt(this.jtxt_kills.getText());
         muerte = Integer.parseInt(this.jtxt_muertes.getText());
         ban = this.jchk_ban.isSelected();  //TAREA FINALIZADA SIN BUSQUEDA DE AYUDA SIIIIUUUUU!!!!
-        
+
         Jugador jugador = new Jugador(id, nombre, rango, kills, muerte, ban);
-        
+
         reg.Actualizar(jugador);
         JOptionPane.showMessageDialog(this, "Datos Actualizados", "Aviso", 1);
-                
-        
+
+
     }//GEN-LAST:event_jbtn_aceptarActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
         dispose();
     }//GEN-LAST:event_jbtn_salirActionPerformed
+
+    private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
+        this.jtxt_buscar.setText("");
+        this.jtxt_nombre.setText("");
+        this.jtxt_rango.setText("");
+        this.jtxt_kills.setText("");
+        this.jtxt_muertes.setText("");
+        this.jtxt_buscar.requestFocus();
+        this.jtxt_nombre.setEditable(false);
+        this.jtxt_rango.setEditable(false);
+        this.jtxt_kills.setEditable(false);
+        this.jtxt_muertes.setEditable(false);
+        this.jchk_ban.setEnabled(false);
+    }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,6 +384,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_aceptar;
     private javax.swing.JButton jbtn_buscar;
     private javax.swing.JButton jbtn_editar;
+    private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JButton jbtn_salir;
     private javax.swing.JCheckBox jchk_ban;
     private javax.swing.JTextField jtxt_buscar;
@@ -355,4 +393,18 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_rango;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/valorant2.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+
 }
