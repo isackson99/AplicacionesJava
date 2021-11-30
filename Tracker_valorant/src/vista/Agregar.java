@@ -27,6 +27,7 @@ public class Agregar extends javax.swing.JFrame {
     public Agregar() {
         this.setContentPane(fondo);
         initComponents();
+        setLocationRelativeTo (null);
     }
 
     /**
@@ -329,7 +330,7 @@ public class Agregar extends javax.swing.JFrame {
         this.jtxt_rango.setText("");
         this.jtxt_kills.setText("");
         this.jtxt_muertes.setText("");
-        this.jchk_ban.setText("");
+        this.jchk_ban.setSelected(false);
         this.jtxt_nombre.requestFocus();
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
 

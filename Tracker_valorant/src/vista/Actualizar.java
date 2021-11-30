@@ -21,6 +21,7 @@ public class Actualizar extends javax.swing.JFrame {
 
     FondoPanel fondo = new FondoPanel();
     Registro reg = new Registro();
+    
 
     /**
      * Creates new form Actualizar
@@ -28,6 +29,7 @@ public class Actualizar extends javax.swing.JFrame {
     public Actualizar() {
         this.setContentPane(fondo);
         initComponents();
+        setLocationRelativeTo (null);
         this.jtxt_nombre.setEditable(false);
         this.jtxt_rango.setEditable(false);
         this.jtxt_kills.setEditable(false);
@@ -289,22 +291,23 @@ public class Actualizar extends javax.swing.JFrame {
             this.jtxt_kills.setEditable(true);
             this.jtxt_muertes.setEditable(true);
             this.jchk_ban.setEnabled(true);
-        } else{
+        } else {
             JOptionPane.showMessageDialog(this, "Ingrese ID", "Aviso", 1);
         }
 
     }//GEN-LAST:event_jbtn_editarActionPerformed
 
     private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
-        int kills, muerte, id;
+        double kills, muerte;
+        int id;
         String nombre, rango;
         boolean ban;
 
         id = Integer.parseInt(this.jtxt_buscar.getText());
         nombre = this.jtxt_nombre.getText();
         rango = this.jtxt_rango.getText();
-        kills = Integer.parseInt(this.jtxt_kills.getText());
-        muerte = Integer.parseInt(this.jtxt_muertes.getText());
+        kills = Double.parseDouble(this.jtxt_kills.getText());
+        muerte = Double.parseDouble(this.jtxt_muertes.getText());
         ban = this.jchk_ban.isSelected();  //TAREA FINALIZADA SIN BUSQUEDA DE AYUDA SIIIIUUUUU!!!!
 
         Jugador jugador = new Jugador(id, nombre, rango, kills, muerte, ban);
@@ -325,6 +328,7 @@ public class Actualizar extends javax.swing.JFrame {
         this.jtxt_rango.setText("");
         this.jtxt_kills.setText("");
         this.jtxt_muertes.setText("");
+        this.jchk_ban.setSelected(false);
         this.jtxt_buscar.requestFocus();
         this.jtxt_nombre.setEditable(false);
         this.jtxt_rango.setEditable(false);
@@ -394,6 +398,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_rango;
     // End of variables declaration//GEN-END:variables
 
+    
     class FondoPanel extends JPanel {
 
         private Image imagen;
