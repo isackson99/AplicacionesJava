@@ -9,10 +9,13 @@ import Modelo.Jugador;
 import controlador.Registro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.RowSorter;
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -221,6 +224,11 @@ public class Listar extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jbtl_datos.getModel();
         RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);
         jbtl_datos.setRowSorter(sorter); //Se ordena por casilla
+        List<SortKey> sortKeys = new ArrayList<>();
+        sortKeys.add(new SortKey(0, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys); //IDjugador esta ordenado de forma ascendiente por defecto
+        
+        
         try {
             id = Integer.parseInt(this.jtxt_buscar.getText());
         } catch (NumberFormatException e) {
