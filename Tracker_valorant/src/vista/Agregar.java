@@ -25,7 +25,7 @@ public class Agregar extends javax.swing.JFrame {
      * Creates new form Agregar
      */
     public Agregar() {
-        this.setContentPane(fondo);
+        this.setContentPane(fondo);  
         initComponents();
         setLocationRelativeTo (null);
     }

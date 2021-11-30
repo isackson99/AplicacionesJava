@@ -180,9 +180,8 @@ public class Listar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Uso de click derecho
-
-    public void poputTable() {
+    //Nueva funcion: Uso de click derecho en el JTable
+    public void poputTable() { 
         JPopupMenu popupMenu = new JPopupMenu();
 
         JMenuItem menuactualizar = new JMenuItem("Actualizar");
@@ -223,10 +222,10 @@ public class Listar extends javax.swing.JFrame {
         Registro reg = new Registro();
         DefaultTableModel modelo = (DefaultTableModel) this.jbtl_datos.getModel();
         RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);
-        jbtl_datos.setRowSorter(sorter); //Se ordena por casilla
+        jbtl_datos.setRowSorter(sorter); //Nueva funcionalidad: Se ordena por casilla
         List<SortKey> sortKeys = new ArrayList<>();
         sortKeys.add(new SortKey(0, SortOrder.ASCENDING));
-        sorter.setSortKeys(sortKeys); //IDjugador esta ordenado de forma ascendiente por defecto
+        sorter.setSortKeys(sortKeys); //Nueva funcionalidad: IDjugador esta ordenado de forma ascendiente por defecto
         
         
         try {
@@ -339,7 +338,4 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_buscar;
     // End of variables declaration//GEN-END:variables
 
-    private void getClass(Class<Actualizar> aClass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

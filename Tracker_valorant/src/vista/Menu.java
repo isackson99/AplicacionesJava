@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         
-        this.setContentPane(fondo);
+        this.setContentPane(fondo); //Nueva funcionalidad: agregar fondo a//Nueva funcionalidad: agregar fondo a JFrame y al JPanel
         initComponents();
         setLocationRelativeTo (null);
 
@@ -160,7 +160,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jmi_soporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_soporteActionPerformed
         try {
-            Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+            Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); //nueva funcionalidad, agregar links
         } catch (URISyntaxException | IOException ex) {
             JOptionPane.showMessageDialog(this, "Link caido", "Aviso", 2);
         }
